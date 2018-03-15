@@ -54,6 +54,10 @@ module.exports = {
     new CopyWebpackPlugin([{
       from: path.join(__dirname, 'index.html'),
       to: path.join(__dirname, 'build/index.html')
+    },
+    {
+      from: path.join(__dirname, 'styles.css'),
+      to: path.join(__dirname, 'build/styles.css')
     }])
   ],
 }

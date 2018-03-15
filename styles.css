@@ -1,0 +1,29 @@
+.users-container {
+}
+
+.row {
+  display: flex;
+  margin: .5rem 0;
+  border: 1px solid #eee;
+  padding: .5rem;
+}
+
+.row:link, .row:visited {
+  background: #fff;
+  transition: background .5s ease;
+}
+
+.row:hover, .row:active {
+  background: #eee;
+  cursor: pointer;
+  transition: background .5s ease;
+}
+
+.row > div {
+  flex: 0 0 25%;
+}
+
+.card h3 > span {
+  display: block;
+  font-size: .75em;
+}
