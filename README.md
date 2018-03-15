@@ -28,3 +28,9 @@ Render is a lifecycle method!
 * It should return a single child element, null or false.
 * The render method should not modify props or state.
 * It doesn't interact with the browser DOM.
+
+## Local setup
+- clone the repo
+- make sure you're on node 8 and npm 5
+- `npm install`
+- `npm run dev`

@@ -1,5 +1,6 @@
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/main.js'),
@@ -16,41 +17,25 @@ module.exports = {
         ],
         exclude: [
           path.resolve(__dirname, 'node_modules'),
-          path.resolve(__dirname, 'bin')
+          path.resolve(__dirname, 'bin'),
+          path.resolve(__dirname, 'mocks'),
+          path.resolve(__dirname, 'build'),
         ],
         loader: 'babel-loader',
       },
     ],
   },
-
-  performance: {
-    hints: "warning", // enum
-    maxAssetSize: 200000, // int (in bytes),
-    maxEntrypointSize: 400000, // int (in bytes)
-    assetFilter: function(assetFilename) {
-      // Function predicate that provides asset filenames
-      return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
-    }
-  },
-
-  devtool: "source-map", // enum
-  // enhance debugging by adding meta info for the browser devtools
-  // source-map most detailed at the expense of build speed.
-  
-  target: "web", // enum
-  // the environment in which the bundle should run
-  // changes chunk loading behavior and available modules
-
+  devtool: "source-map",
+  target: "web",
   devServer: {
-    outputPath: path.join(__dirname, 'build'),
-    port: 4444,
+    port: 8888,
     historyApiFallback: true,
-    hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
-    https: false, // true for self-signed, object for cert authority
+    hot: true,
+    https: false,
     noInfo: false,
   },
-
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([{
       from: path.join(__dirname, 'index.html'),
       to: path.join(__dirname, 'build/index.html')

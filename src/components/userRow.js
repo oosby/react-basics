@@ -18,6 +18,8 @@ const UserRow = props => {
   );
 }
 
+UserRow.displayName = 'UserRow';
+
 UserRow.propTypes = {
   company: PropTypes.string,
   email: PropTypes.string,

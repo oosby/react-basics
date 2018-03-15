@@ -1,41 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import reactDOM from 'react-dom';
-import users from './mocks/users';
-import UserRow from './components/userRow';
-import UserDetail from './components/userDetail';
+import App from './components/app';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { users };
-    this.handleUserClick = this.handleUserClick.bind(this);
-  }
+reactDOM.render(<App />, document.getElementById('app-root'));
 
-  handleUserClick(userId) {
-    this.setState({ currentUser: this.state.users.find(u => u.id === userId) });
-  }
-
-  render() {
-    const { currentUser, users } = this.state;
-
-    return <main className="users-container">
-      {users.map(user => {
-        return (<UserRow
-          key={`user${user.id}`}
-          company={user.companyName}
-          email={user.email}
-          name={user.name}
-          website={user.website}
-          onClick={this.handleUserClick}
-          userId={user.id}
-        />);
-        })
-      }
-      {currentUser &&
-        <UserDetail user={currentUser} />
-      }
-    </main>;
-  }
+if (module.hot) {
+  module.hot.accept('./components/app.js', function() {
+    const NextApp = require('./components/app');
+    reactDOM.render(<NextApp />, document.getElementById('app-root'));
+  })
 }
-
-reactDOM.render(<App />, document.getElementById('app-root'))

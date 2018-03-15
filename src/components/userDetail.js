@@ -22,11 +22,13 @@ const UserDetail = props => {
     <h3>{companyName}<span>{catchPhrase}</span></h3>
     
     <address className="address">
-      <div>{street} {suite}</div>
+      <div>{streetAddress} {suite}</div>
       <div>{city}, {zipcode}</div>
     </address>
   </div>);
 }
+
+UserDetail.displayName = 'UserDetail';
 
 UserDetail.defaultProps = {
 
