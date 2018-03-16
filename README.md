@@ -9,7 +9,6 @@ We'll continue with `<App />` and explore the `componentDidMount` lifecycle meth
 
 - Fetch data in this method
 - The DOM is available at this point
-- calling setState causes extra rendering cylces
 
 
 ## Local setup
