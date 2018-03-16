@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import users from '../mocks/users';
 import UserRow from './userRow';
 import UserDetail from './userDetail';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { users };
+    this.state = { users: [] };
     this.handleUserClick = this.handleUserClick.bind(this);
     console.log('%cConstructor:', 'color:lime', this.state);
   }
 
-  componentWillMount() {
-    console.log('%cCWM:', 'color:hotpink', this.state);
+  componentDidMount() {
+    console.log('%cCDM:', 'color:hotpink', this.state);
+    // to remove the slow timeout, change the url to http://localhost:4444/api/users
+    fetch('http://localhost:4444/api/users-slow')
+    .then(resp => resp.json())
+    .then(json => {
+      console.log('%cAsync Users:', 'color:orange', json);
+      this.setState({ users: json });
+    });
   }
 
   handleUserClick(userId) {
@@ -24,7 +30,11 @@ class App extends Component {
     const { currentUser, users } = this.state;
     console.log('%cRender:', 'color:aqua', this.state);
 
-    return <div>
+    if (!users.length) {
+      return <div>loading users...</div>
+    }
+
+    return (<div>
       {users.map(user => {
         return (<UserRow
           key={`user${user.id}`}
@@ -40,7 +50,7 @@ class App extends Component {
       {currentUser &&
         <UserDetail user={currentUser} />
       }
-    </div>;
+    </div>);
   }
 }
 

@@ -1,18 +1,20 @@
 # react-basics
 
-## Chapter 2
-We'll continue with `<App />` and explore the `componentWillMount` lifecycle method.
+## Chapter 3
+We'll continue with `<App />` and explore the `componentDidMount` lifecycle method. The users have been moved to the server side and we'll run a local express server so we can fetch them asynchronously.
 
-### ComponentWillMount
-[docs:](https://reactjs.org/docs/react-component.html#componentwillmount)
-componentWillMount() is invoked just before mounting occurs. It is called before render()
+### componentDidMount
+[docs:](https://reactjs.org/docs/react-component.html#componentdidmount)
+`componentDidMount()` is invoked immediately after a component is mounted.
 
-- This method isn't as useful as it was in earlier React versions.
-- It might get merged with constructor
+- Fetch data in this method
+- The DOM is available at this point
+- calling setState causes extra rendering cylces
 
 
 ## Local setup
 - clone the repo
 - make sure you're on node 8 and npm 5
 - `npm install`
-- `npm run dev`
+- `npm run start`
+- in a second terminal window `npm run dev`

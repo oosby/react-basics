@@ -33,6 +33,9 @@ module.exports = {
     hot: true,
     https: false,
     noInfo: false,
+    proxy: {
+      '/api/users': 'http://localhost:4444',
+    },
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
