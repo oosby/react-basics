@@ -1,11 +1,11 @@
 {
   "presets": [
-    ["@babel/env", {
+    ["env", {
       "targets": {
         "browsers": "since 2015"
       },
       "modules": "commonjs"
     }],
-    "@babel/preset-react",
+    "react",
   ]
 }
