@@ -9,6 +9,11 @@ class App extends Component {
     super(props);
     this.state = { users };
     this.handleUserClick = this.handleUserClick.bind(this);
+    console.log('%cConstructor:', 'color:lime', this.state);
+  }
+
+  componentWillMount() {
+    console.log('%cCWM:', 'color:hotpink', this.state);
   }
 
   handleUserClick(userId) {
@@ -17,6 +22,7 @@ class App extends Component {
 
   render() {
     const { currentUser, users } = this.state;
+    console.log('%cRender:', 'color:aqua', this.state);
 
     return <div>
       {users.map(user => {
