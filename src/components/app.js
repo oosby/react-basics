@@ -11,8 +11,15 @@ class App extends Component {
     console.log('%cConstructor:', 'color:lime', this.state);
   }
 
+  componentWillMount() {
+    this.setState({ foo: 'bar' });
+    console.log('%cCWM:', 'color:yellow', this.state);
+  }
+
   componentDidMount() {
     console.log('%cCDM:', 'color:hotpink', this.state);
+
+    this.setState({ foo: 'baz' });
     // to remove the slow timeout, change the url to http://localhost:4444/api/users
     fetch('http://localhost:4444/api/users-slow')
     .then(resp => resp.json())
