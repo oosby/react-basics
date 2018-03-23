@@ -9,6 +9,8 @@ We'll continue with `<App />` and explore the `componentDidMount` lifecycle meth
 
 - Fetch data in this method
 - The DOM is available at this point
+- server side components are not mounted
+
 
 
 ## Local setup
