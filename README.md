@@ -9,6 +9,7 @@ componentWillMount() is invoked just before mounting occurs. It is called before
 
 - This method isn't as useful as it was in earlier React versions.
 - It might get merged with constructor
+- This method may be called multiple times before the first render
 
 
 ## Local setup

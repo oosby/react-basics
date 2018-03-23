@@ -14,6 +14,7 @@ class App extends Component {
 
   componentWillMount() {
     console.log('%cCWM:', 'color:hotpink', this.state);
+    this.setState({ foo: 'bar' });
   }
 
   handleUserClick(userId) {
