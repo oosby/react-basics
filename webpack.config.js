@@ -23,6 +23,18 @@ module.exports = {
         ],
         loader: 'babel-loader',
       },
+      {
+        test: /\.jcss?$/,
+        include: [
+          path.resolve(__dirname, 'src')
+        ],
+        exclude: [
+          path.resolve(__dirname, 'node_modules'),
+          path.resolve(__dirname, 'bin'),
+          path.resolve(__dirname, 'mocks'),
+          path.resolve(__dirname, 'build'),
+        ],
+      },
     ],
   },
   devtool: "source-map",

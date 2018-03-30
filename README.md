@@ -1,16 +1,17 @@
 # react-basics
 
-## Chapter 3
-We'll continue with `<App />` and explore the `componentDidMount` lifecycle method. The users have been moved to the server side and we'll run a local express server so we can fetch them asynchronously.
+## Chapter 4
+We completed the mounting methods, now we'll move on to the updating methods.
+We'll continue to use `<App />` and explore the `componentWillReceiveProps` lifecycle method.
 
-### componentDidMount
-[docs:](https://reactjs.org/docs/react-component.html#componentdidmount)
+### componentWillReceiveProps/UNSAFE_componentWillReceiveProps
+[docs:](https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops)
 `componentDidMount()` is invoked immediately after a component is mounted.
 
-- Fetch data in this method
-- The DOM is available at this point
-- server side components are not mounted
-
+- This lifecycle was previously named componentWillReceiveProps. That name will continue to work until version 17
+- invoked before a mounted component receives new props
+- if a parent component causes your component to re-render, this method will be called even if props have not changed
+- compare the current and next values if you only want to handle changes
 
 
 ## Local setup

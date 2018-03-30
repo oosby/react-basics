@@ -6,25 +6,24 @@ import UserDetail from './userDetail';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { users: [] };
+    this.state = { users: [], currentUser: {} };
     this.handleUserClick = this.handleUserClick.bind(this);
     console.log('%cConstructor:', 'color:lime', this.state);
   }
 
   componentWillMount() {
     this.setState({ foo: 'bar' });
-    console.log('%cCWM:', 'color:yellow', this.state);
+    console.log('%cCWM:', 'color:teal', this.state);
   }
 
   componentDidMount() {
     console.log('%cCDM:', 'color:hotpink', this.state);
 
     this.setState({ foo: 'baz' });
-    // to remove the slow timeout, change the url to http://localhost:4444/api/users
-    fetch('http://localhost:4444/api/users-slow')
+
+    fetch('http://localhost:4444/api/users')
     .then(resp => resp.json())
     .then(json => {
-      console.log('%cAsync Users:', 'color:orange', json);
       this.setState({ users: json });
     });
   }
@@ -35,15 +34,22 @@ class App extends Component {
 
   render() {
     const { currentUser, users } = this.state;
-    console.log('%cRender:', 'color:aqua', this.state);
 
     if (!users.length) {
       return <div>loading users...</div>
     }
 
     return (<div>
+      <div className="row">
+        <div>Name</div>
+        <div>Email</div>
+        <div>Company</div>
+        <div>Website</div>
+        <div>Card Views</div>
+      </div>
       {users.map(user => {
         return (<UserRow
+          active={user.id === currentUser.id}
           key={`user${user.id}`}
           company={user.companyName}
           email={user.email}
@@ -54,7 +60,7 @@ class App extends Component {
         />);
         })
       }
-      {currentUser &&
+      {currentUser.id &&
         <UserDetail user={currentUser} />
       }
     </div>);

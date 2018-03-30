@@ -19,8 +19,23 @@
   transition: background .5s ease;
 }
 
+.row.active {
+  background: #dcedc8;
+  border-color: #aabb97;
+}
+
+.row.active:link, .row.active:visited {
+  background: #dcedc8;
+  transition: background .5s ease;
+}
+
 .row > div {
-  flex: 0 0 25%;
+  flex: 0 0 24%;
+}
+
+.row > div:last-child {
+  flex: 0 0 4%;
+  text-align: right;
 }
 
 .card h3 > span {
