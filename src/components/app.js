@@ -28,12 +28,24 @@ class App extends Component {
     });
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    const { id } = this.state.currentUser;
+    console.log('%cSCU:', 'color:tomato', id );
+    if (id && (id === nextState.currentUser.id)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   handleUserClick(userId) {
     this.setState({ currentUser: this.state.users.find(u => u.id === userId) });
   }
 
   render() {
     const { currentUser, users } = this.state;
+
+    console.log('%cRender:', 'color:aqua', currentUser);
 
     if (!users.length) {
       return <div>loading users...</div>

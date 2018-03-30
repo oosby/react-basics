@@ -1,17 +1,16 @@
 # react-basics
 
-## Chapter 4
-We completed the mounting methods, now we'll move on to the updating methods.
-We'll continue to use `<App />` and explore the `componentWillReceiveProps` lifecycle method.
+## Chapter 5
+We'll continue to use `<App />` and explore the `shouldComponentUpdate` lifecycle method.
 
-### componentWillReceiveProps/UNSAFE_componentWillReceiveProps
-[docs:](https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops)
-`componentDidMount()` is invoked immediately after a component is mounted.
+### shouldComponentUpdate
+[docs:](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)
+`shouldComponentUpdate()` is invoked before rendering when new props or state are being received.
 
-- This lifecycle was previously named componentWillReceiveProps. That name will continue to work until version 17
-- invoked before a mounted component receives new props
-- if a parent component causes your component to re-render, this method will be called even if props have not changed
-- compare the current and next values if you only want to handle changes
+- Defaults to true
+- Returning false does not prevent child components from re-rendering when their state changes
+- Note that in the future React may treat this method return value as a "hint" and re-render anyway
+- React docs do not recommend doing deep equality checks or using JSON.stringify() in shouldComponentUpdate(). It is very inefficient and will harm performance.
 
 
 ## Local setup
