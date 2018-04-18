@@ -10,12 +10,22 @@ class UserRow extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log('%cCWRP:', 'color:gold', this.props, nextProps);
+    console.log('%cAbout to get new props:', 'color:gold', 'this.props.active: ', this.props.active, ' nextProps.active: ', nextProps.active);
 
     if (!this.props.active && nextProps.active) {
       console.log('%cI got picked!:', 'color:orange', nextProps.name);
       this.setState({ counter: this.state.counter + 1 });
     }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('%cshould i update? %o', 'color:aqua', (nextProps.active !== this.props.active));
+
+    return nextProps.active !== this.props.active;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('%cI updated!:', 'color:magenta', 'this.props.active: ', this.props.active, ' nextProps.active: ', nextProps.active);
   }
 
   handleClick(e) {

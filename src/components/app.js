@@ -8,17 +8,13 @@ class App extends Component {
     super(props);
     this.state = { users: [], currentUser: {} };
     this.handleUserClick = this.handleUserClick.bind(this);
-    console.log('%cConstructor:', 'color:lime', this.state);
   }
 
   componentWillMount() {
     this.setState({ foo: 'bar' });
-    console.log('%cCWM:', 'color:teal', this.state);
   }
 
   componentDidMount() {
-    console.log('%cCDM:', 'color:hotpink', this.state);
-
     this.setState({ foo: 'baz' });
 
     fetch('http://localhost:4444/api/users')
@@ -28,24 +24,12 @@ class App extends Component {
     });
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const { id } = this.state.currentUser;
-    console.log('%cSCU:', 'color:tomato', id );
-    if (id && (id === nextState.currentUser.id)) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   handleUserClick(userId) {
     this.setState({ currentUser: this.state.users.find(u => u.id === userId) });
   }
 
   render() {
     const { currentUser, users } = this.state;
-
-    console.log('%cRender:', 'color:aqua', currentUser);
 
     if (!users.length) {
       return <div>loading users...</div>
