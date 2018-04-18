@@ -1,16 +1,14 @@
 # react-basics
 
-## Chapter 5
-We'll continue to use `<App />` and explore the `shouldComponentUpdate` lifecycle method.
+## Chapter 6
+We'll continue to use `<App />` and explore the now-deprecated `UNSAFE_componentWillUpdate` lifecycle method.
 
-### shouldComponentUpdate
-[docs:](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)
-`shouldComponentUpdate()` is invoked before rendering when new props or state are being received.
+### UNSAFE_componentWillUpdate
+[docs:](https://reactjs.org/docs/react-component.html#unsafe_componentwillupdate)
+`UNSAFE_componentWillUpdate()` is invoked just before rendering when new props or state are being received. Like `componentWillMount`, this isn't that useful and you may not see it used as frequently as `componentWillReceiveProps`
 
-- Defaults to true
-- Returning false does not prevent child components from re-rendering when their state changes
-- Note that in the future React may treat this method return value as a "hint" and re-render anyway
-- React docs do not recommend doing deep equality checks or using JSON.stringify() in shouldComponentUpdate(). It is very inefficient and will harm performance.
+- Don't set state or dispatch redux actions here. we don't want to trigger a component update before this method finishes
+- This method is not called for the initial render
 
 
 ## Local setup
