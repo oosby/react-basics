@@ -1,12 +1,13 @@
 {
   "name": "react-basics",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Chapter 5 We'll continue to use `<App />` and explore the now-deprecated `UNSAFE_componentWillUpdate` lifecycle method.",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/www/server.js",
-    "dev": "./node_modules/.bin/webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node -r dotenv/config bin/www/server.js",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dock": "docker build -t fed . && docker run -p 8100:8100 --name fed -d fed"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,10 @@
   "homepage": "https://github.com/oosby/react-basics#readme",
   "dependencies": {
     "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "dotenv-webpack": "^1.5.5",
     "express": "^4.16.3",
+    "pug": "^2.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

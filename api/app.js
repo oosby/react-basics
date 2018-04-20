@@ -8,12 +8,12 @@ app.use(cors())
 
 app.get('/api/users-slow', (req, res) => {
   setTimeout(function() {
-    res.json([users[0]]);
+    res.json(users);
   }, 2000);
 });
 
 app.get('/api/users', (req, res) => {
-  res.json([users[0]]);
+  res.json(users);
 });
 
 module.exports = app;

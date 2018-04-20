@@ -1,0 +1,17 @@
+{
+  "name": "rbapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/www/server.js",
+    "dock": "docker build -t rbapi . && docker run -p 8200:8200 --name rbapi -d rbapi"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  }
+}

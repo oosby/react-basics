@@ -16,8 +16,9 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({ foo: 'baz' });
+    console.log(USERS_API)
 
-    fetch('http://localhost:4444/api/users')
+    fetch(`http://${USERS_API}/api/users`)
     .then(resp => resp.json())
     .then(json => {
       this.setState({ users: json });

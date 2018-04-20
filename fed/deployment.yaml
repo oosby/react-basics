@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: fed
+  namespace: default
+  labels:
+    run: fed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: fed
+  template:
+    metadata:
+      creationTimestamp: 
+      labels:
+        run: fed
+    spec:
+      containers:
+      - name: fed
+        image: fed:v1
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: USERS_API
+            value: "rbapi"
+      restartPolicy: Always
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
