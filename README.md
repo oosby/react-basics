@@ -1,13 +1,13 @@
 # react-basics
 
-## Chapter 6
-We'll continue to use `<App />` and explore the now-deprecated `UNSAFE_componentWillUpdate` lifecycle method.
+## Chapter 7
+We'll continue to use `<App />` and explore the `componentDidUpdate` lifecycle method.
 
-### UNSAFE_componentWillUpdate
-[docs:](https://reactjs.org/docs/react-component.html#unsafe_componentwillupdate)
-`UNSAFE_componentWillUpdate()` is invoked just before rendering when new props or state are being received. Like `componentWillMount`, this isn't that useful and you may not see it used as frequently as `componentWillReceiveProps`
+### componentDidUpdate
+[docs:](https://reactjs.org/docs/react-component.html#componentdidupdate)
+`componentDidUpdate()` is invoked immediately after updating occurs
 
-- Don't set state or dispatch redux actions here. we don't want to trigger a component update before this method finishes
+- This is a good place to do network requests as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed)
 - This method is not called for the initial render
 
 

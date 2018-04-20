@@ -22,11 +22,11 @@ class UserRow extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    console.log('%cI updated!:', 'color:magenta', 'this.props.active: ', this.props.active, ' nextProps.active: ', nextProps.active);
+    console.log('%cI will update:', 'color:lime', 'this.props.active: ', this.props.active);
   }
 
-  doSomething() {
-    this.setState({ foo: 'bar' });
+  componentDidUpdate(prevProps, prevState) {
+    console.log('%cI updated but i can still see what i used to have!:', 'color:magenta', 'this.props.active: ', this.props.active, ' prevProps.active: ', prevProps.active);
   }
 
   handleClick(e) {
@@ -38,7 +38,7 @@ class UserRow extends Component {
     const { counter } = this.state;
     const classnames = active ? 'active row' : 'row';
 
-    console.log('%cbar?:', 'color:pink', this.state.foo);
+    console.log('%cRendering:', 'color:pink', 'this.props.active: ', this.props.active);
 
     return (
       <div className={classnames} onClick={this.handleClick}>
