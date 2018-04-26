@@ -1,23 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: rbapi
-  namespace: default
-  selfLink: "/api/v1/namespaces/default/services/rbapi"
-  uid: 5a1f9141-43d3-11e8-aaba-080027c52547
-  resourceVersion: '684'
-  creationTimestamp: '2018-04-19T13:12:46Z'
-  labels:
-    run: rbapi
+  name: oliviaosby
 spec:
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
   selector:
-    run: rbapi
-  clusterIP: 10.100.176.91
-  type: ClusterIP
-  sessionAffinity: None
-status:
-  loadBalancer: {}
+    app: oliviaosby
+  type: LoadBalancer

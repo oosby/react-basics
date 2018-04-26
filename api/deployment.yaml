@@ -1,53 +1,18 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: rbapi
-  namespace: default
-  selfLink: "/apis/extensions/v1beta1/namespaces/default/deployments/rbapi"
-  uid: 454ffed3-43d3-11e8-aaba-080027c52547
-  resourceVersion: '657'
-  generation: 1
-  creationTimestamp: '2018-04-19T13:12:11Z'
+  name: oliviaosby
   labels:
-    run: rbapi
-  annotations:
-    deployment.kubernetes.io/revision: '1'
+    app: oliviaosby
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      run: rbapi
   template:
     metadata:
-      creationTimestamp: 
       labels:
-        run: rbapi
+        app: oliviaosby
     spec:
       containers:
-      - name: rbapi
-        image: rbapi:v1
+      - name: oliviaosby
+        image: 688109795635.dkr.ecr.us-west-2.amazonaws.com/oliviaosby:v2
         ports:
         - containerPort: 80
-          protocol: TCP
-        resources: {}
-        terminationMessagePath: "/dev/termination-log"
-        terminationMessagePolicy: File
-        imagePullPolicy: IfNotPresent
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
-status:
-  observedGeneration: 1
-  replicas: 1
-  updatedReplicas: 1
-  readyReplicas: 1
-  availableReplicas: 1
-  conditions:
-  - type: Available
-    status: 'True'
-    lastUpdateTime: '2018-04-19T13:12:11Z'
-    lastTransitionTime: '2018-04-19T13:12:11Z'
-    reason: MinimumReplicasAvailable
-    message: Deployment has minimum availability.

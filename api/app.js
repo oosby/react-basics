@@ -16,4 +16,9 @@ app.get('/api/users', (req, res) => {
   res.json(users);
 });
 
+app.get('/health', (req, res) => {
+  res.status(200).send('healthy');
+})
+
+
 module.exports = app;
