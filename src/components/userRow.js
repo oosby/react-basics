@@ -9,24 +9,11 @@ class UserRow extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('%cAbout to get new props:', 'color:gold', 'this.props.active: ', this.props.active, ' nextProps.active: ', nextProps.active);
-
-    this.setState({ counter: this.state.counter + 1 });
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('%cshould i update? %o', 'color:aqua', (nextProps.active !== this.props.active));
-
-    return nextProps.active !== this.props.active;
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    console.log('%cI will update:', 'color:lime', 'this.props.active: ', this.props.active);
-  }
-
   componentDidUpdate(prevProps, prevState) {
-    console.log('%cI updated but i can still see what i used to have!:', 'color:magenta', 'this.props.active: ', this.props.active, ' prevProps.active: ', prevProps.active);
+    // move this logic from componentWillReceiveProps to here
+    if (this.props.active && !prevProps.active) {
+      this.setState({ counter: prevState.counter + 1 });
+    }
   }
 
   handleClick(e) {
