@@ -13,7 +13,7 @@ app.get('/api/users-slow', (req, res) => {
 });
 
 app.get('/api/users', (req, res) => {
-  res.json([users[0]]);
+  res.json(users);
 });
 
 module.exports = app;

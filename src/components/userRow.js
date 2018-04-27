@@ -9,10 +9,13 @@ class UserRow extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // UNSAFE
   componentWillReceiveProps(nextProps) {
     console.log('%cAbout to get new props:', 'color:gold', 'this.props.active: ', this.props.active, ' nextProps.active: ', nextProps.active);
 
-    this.setState({ counter: this.state.counter + 1 });
+    if (!this.props.active && nextProps.active) {
+      this.setState({ counter: this.state.counter + 1 });
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
