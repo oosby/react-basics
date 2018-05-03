@@ -4,9 +4,9 @@
 We're going to take a break from Component and look at children. UserDetail will get expanded to include a form that handles editing a contact. In addition to `children` we'll also use `isValidElement` and `cloneElement`.
 
 ### componentDidUpdate
-[Children:](https://reactjs.org/docs/react-api.html#reactchildren)
-[isValidElement:](https://reactjs.org/docs/react-api.html#isvalidelement)
-[cloneElement:](https://reactjs.org/docs/react-api.html#cloneelement)
+- [Children](https://reactjs.org/docs/react-api.html#reactchildren)
+- [isValidElement](https://reactjs.org/docs/react-api.html#isvalidelement)
+- [cloneElement](https://reactjs.org/docs/react-api.html#cloneelement)
 
 
 - Children are useful for keeping your components reusable and composable
