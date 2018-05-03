@@ -8,15 +8,10 @@ class App extends Component {
     super(props);
     this.state = { users: [], currentUser: {} };
     this.handleUserClick = this.handleUserClick.bind(this);
-  }
-
-  componentWillMount() {
-    this.setState({ foo: 'bar' });
+    this.handleUserUpdates = this.handleUserUpdates.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ foo: 'baz' });
-
     fetch('http://localhost:4444/api/users')
     .then(resp => resp.json())
     .then(json => {
@@ -26,6 +21,15 @@ class App extends Component {
 
   handleUserClick(userId) {
     this.setState({ currentUser: this.state.users.find(u => u.id === userId) });
+  }
+
+  handleUserUpdates(user) {
+    // let's stay immutable!
+    const updatedUsers = this.state.users.concat();
+    const userIdx = updatedUsers.findIndex(u => u.id === user.id);
+    updatedUsers[userIdx] = user;
+
+    this.setState({ users: updatedUsers });
   }
 
   render() {
@@ -57,7 +61,7 @@ class App extends Component {
         })
       }
       {currentUser.id &&
-        <UserDetail user={currentUser} />
+        <UserDetail handleChanges={this.handleUserUpdates} {...currentUser} />
       }
     </div>);
   }

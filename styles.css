@@ -1,4 +1,6 @@
-.users-container {
+#app-root {
+  font-family: Helvetica, sans-serif;
+  font-weight: 100;
 }
 
 .row {
@@ -14,14 +16,14 @@
 }
 
 .row:hover, .row:active {
-  background: #eee;
+  background: #f8c5083d;
   cursor: pointer;
   transition: background .5s ease;
 }
 
 .row.active {
-  background: #dcedc8;
-  border-color: #aabb97;
+  background: #c8eced;
+  border-color: #6ebec1;
 }
 
 .row.active:link, .row.active:visited {
@@ -42,3 +44,30 @@
   display: block;
   font-size: .75em;
 }
+
+.error {
+  color: tomato;
+  font-size: .825rem;
+}
+
+fieldset {
+  border: 0;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+fieldset input {
+  display: block;
+  margin: 8px 0;
+  border: 0;
+  padding: .5rem;
+  outline: 1px solid #eee;
+}
+
+fieldset input:focus {
+  outline: 1px solid #6ebec1;
+}
+
+
+
+

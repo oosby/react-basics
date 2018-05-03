@@ -1,14 +1,18 @@
 # react-basics
 
-## Chapter 7
-We'll continue to use `<App />` and explore the `componentDidUpdate` lifecycle method.
+## Chapter 8
+We're going to take a break from Component and look at children. UserDetail will get expanded to include a form that handles editing a contact. In addition to `children` we'll also use `isValidElement` and `cloneElement`.
 
 ### componentDidUpdate
-[docs:](https://reactjs.org/docs/react-component.html#componentdidupdate)
-`componentDidUpdate()` is invoked immediately after updating occurs
+[Children:](https://reactjs.org/docs/react-api.html#reactchildren)
+[isValidElement:](https://reactjs.org/docs/react-api.html#isvalidelement)
+[cloneElement:](https://reactjs.org/docs/react-api.html#cloneelement)
 
-- This is a good place to do network requests as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed)
-- This method is not called for the initial render
+
+- Children are useful for keeping your components reusable and composable
+- Children have their own methods for looping and examining
+- `isValidElement` returns a boolean telling us if the object passed to it is a react element
+- `cloneElement` lets us clone a react element and add/edit its props
 
 
 ## Local setup

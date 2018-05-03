@@ -7,5 +7,6 @@
       "modules": "commonjs"
     }],
     "react",
-  ]
+  ],
+  "plugins": ["transform-object-rest-spread"]
 }

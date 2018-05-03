@@ -25,8 +25,6 @@ class UserRow extends Component {
     const { counter } = this.state;
     const classnames = active ? 'active row' : 'row';
 
-    console.log('%cRendering:', 'color:pink', 'this.props.active: ', this.props.active);
-
     return (
       <div className={classnames} onClick={this.handleClick}>
         <div>{name}</div>
